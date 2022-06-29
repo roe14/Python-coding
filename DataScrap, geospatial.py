@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jun 21 17:34:09 2021
 
-@author: Roelo
+
+@author: Roelof
 """
 
                              #Data Scraping
