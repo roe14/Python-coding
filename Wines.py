@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Jun 28 21:29:17 2022
 
-@author: Roelo
+
+@author: Roelof
 """
 # Spanish Wines Quality/Price Dataset
 
