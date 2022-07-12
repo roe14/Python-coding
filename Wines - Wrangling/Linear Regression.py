@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
+Created on Tue Jun 28 21:29:17 2022
 
-
-@author: Roelof
+@author: Roelo
 """
 # Spanish Wines Quality/Price Dataset
 
@@ -52,12 +52,19 @@ from sklearn.metrics import mean_squared_error,r2_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
+#Datatype of each column in dataframe
+datatype=df.dtypes
+print(datatype)
+
+#Column 'year' is object so convert to numeric/float to allow for plot
+df['year']=df['year'].astype(float)
+
 
 
 #Create training/test split
 X=df[["year"]]
 y=df["price"]
-X_train,X_test,y_train,y_test=train_test_split(X,y, test_size=0.20,random_state=2)
+X_train,X_test,y_train,y_test=train_test_split(X,y, test_size=0.25,random_state=2)
 
 #Number of test samples
 num_test_samples = y_test.shape
@@ -88,13 +95,14 @@ print("Predicted price of wine from 2012 is:", pred_price4)
 
 
                                 # Visualise the model (Scatter Plots)
+                                # Linear Regression not a good fit
                                 
 
 #Plotting and Labeling the model
 
 look_train=plt
 look_train.scatter(X_train,y_train, color="blue")
-look_train.plot(X_train, regression.predict(X_train),color="red")
+look_train.plot(X_train,regression.predict(X_train),color="red")
 look_train.title("Price v Year of Wine")
 look_train.xlabel("Year")
 look_train.ylabel("Price")
@@ -114,9 +122,9 @@ look_test.show()
 #Evaluation Metrics
 
 mse=mean_squared_error(y_test, pred)
-print(mse)
+print("Mean Squared Error is:", mse)
 r2=r2_score(y_test,pred)
-print(r2)
+print("R2 Score is:", r2)
 
 
 
