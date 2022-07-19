@@ -93,13 +93,20 @@ from sklearn.metrics import confusion_matrix
 cml=confusion_matrix(y_test, ypred)
 print("Confusion Matrix:", cml)
 
-#Accuracy Score
-from sklearn.metrics import accuracy_score
-print("Accuracy is:", accuracy_score(y_test, ypred))
-    
+#Plot confusion matrix - seaborn
+sns.heatmap(cml, annot=True, cmap="YlGnBu")
+plt.tight_layout()
+plt.title("Confusion Matrix",fontsize=12)
+plt.xlabel("Predicted Label")
+plt.ylabel("Actual Label")
 
-#plot confusion matrix - seaborn
-sns.heatmap(cml, annot=True)
+#Accuracy Score
+from sklearn.metrics import accuracy_score, precision_score, recall_score
+from sklearn.metrics import classification_report
+print("Accuracy is:", accuracy_score(y_test, ypred))
+print("Precision is:", precision_score(y_test, ypred))
+print("Recall is:", recall_score(y_test,ypred)) 
+print(classification_report(y_test,ypred))
 
 
 
